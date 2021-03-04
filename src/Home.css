@@ -1,0 +1,50 @@
+.home{
+    max-width:1500px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+   background-color: black;
+
+
+}
+
+.home__image{
+    width:100%;
+    height: 60vh;
+    /* height: 100%; */
+    /* mask-image: linear-gradient(to bottom, rgba(0,0,0,1),rgb(0,0,0,0)); */
+    max-width:3000px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+   
+   
+   /* background-color: "black"; */
+
+    
+    
+}
+
+.home__row{
+    display:flex;
+    z-index:1;
+    margin-left: 5px ;
+    margin-right: 5px;
+    
+}
+.btn-userconfigadd {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 0;
+    background-color: yellow;
+    height: 5vh;
+    width: 300px;
+    border-radius: 20px;
+    font-family: Starjedi, serif;
+    
+  }
+  
