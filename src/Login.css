@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 .login_logo{
     width:150px;
@@ -18,7 +19,10 @@
     width: 400px;
     display: flex;
     flex-direction: column;
-    
+    background-color: white;
+    justify-content: center;
+align-items: center;
+    font-family: Starjedi, serif;
     margin-bottom: 20px;
     padding:20px;
     border: 1px solid lightgray;
@@ -58,6 +62,7 @@
     margin-top:10px;
     border-color: #a88734 #9c7e31 #846a29 ;
     color:#111;
+    font-family: Starjedi, serif;
 
 
 }
@@ -68,6 +73,7 @@
     margin-top:10px;
     border-color: #a88734 #9c7e31 #846a29 ;
     color:#111;
+    font-family: Starjedi, serif;
 
 
 }

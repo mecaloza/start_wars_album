@@ -38,7 +38,7 @@ function Login() {
     return (
         <div className="login">
             <Link to="/">
-                <img className="login_logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Amazon.com-Logo.svg/800px-Amazon.com-Logo.svg.png" alt=""></img>
+                <img className="login_logo" src="https://vistapointe.net/images/star-wars-1.jpg" alt=""></img>
             </Link>
             <div className="login__container">
                 <h1>Sig in</h1>
@@ -51,7 +51,7 @@ function Login() {
 
                 </form>
                 <p>by sign in you agree to the conditons tah user policy</p>
-                <button onClick={register} className="login__registerButton">Create your Amazon account</button>
+                <button onClick={register} className="login__registerButton">Create your Star wars album     account</button>
 
             </div>
            
