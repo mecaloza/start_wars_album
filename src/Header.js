@@ -50,8 +50,8 @@ function Header() {
 
                 <Link to="/login" className="header__link">
                 <div className="header__option">
-                    <span className="header__optionLineOne">Tus</span>
-                    <span className="header__optionLineTwo">Laminas</span>
+                    <span className="header__optionLineOne">Mi</span>
+                    <span className="header__optionLineTwo">Álbum</span>
                 </div>
                 
                 </Link>
