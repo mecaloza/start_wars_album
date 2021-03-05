@@ -134,8 +134,8 @@ function Home() {
         <div className="sheets_colum"> 
         {sheet_visible ? (
         <div className="sheets_block">
-        <button  className = {shake ? `shake` : "test"} onClick={selec_folder}>Sobre 1</button>
-        <button  className = {shake ? `shake` : "test"} onClick={selec_folder}>Sobre 2</button>
+        <button  className = {shake ? `shake` : "btn_initial"} onClick={selec_folder}>Sobre 1</button>
+        <button  className = {shake ? `shake` : "btn_initial"} onClick={selec_folder}>Sobre 2</button>
        </div>
       ) : null}
        
@@ -167,8 +167,8 @@ function Home() {
         ></img>
       {sheet_visible ? (
         <div className="sheets_block">
-        <button  className = {shake ? `shake` : "test"} onClick={selec_folder}>Sobre 3</button>
-        <button  className = {shake ? `shake` : "test"} onClick={selec_folder}>Sobre 4</button>
+        <button  className = {shake ? `shake` : "btn_initial"} onClick={selec_folder}>Sobre 3</button>
+        <button  className = {shake ? `shake` : "btn_initial"} onClick={selec_folder}>Sobre 4</button>
        </div>
       ) : null}
         
