@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import "./Login.css"
 import {Link , useHistory} from "react-router-dom";
-// import {auth} from "./firebase"
+import {auth} from "./firebase"
 
 function Login() {
     const history=useHistory();
@@ -14,12 +14,12 @@ function Login() {
         console.log("Logueado")
         history.push("/")
         //Login logic ..
-        // auth.signInWithEmailAndPassword(email , password)
-        // .then((auth)=>{
-        //     history.push("/")
+        auth.signInWithEmailAndPassword(email , password)
+        .then((auth)=>{
+            history.push("/")
 
-        // })
-        // .catch((e)=>alert(e.message))
+        })
+        .catch((e)=>alert(e.message))
 
 
     }
@@ -27,12 +27,12 @@ function Login() {
         event.preventDefault();
         console.log("registrado")
         //do the logic regsitr
-        // auth.createUserWithEmailAndPassword(email,password)
-        // .then((auth)=>{
-        //     //create user and logged in
-        //     history.push("/")
-        // })
-        // .catch((e)=> alert(e.message))
+        auth.createUserWithEmailAndPassword(email,password)
+        .then((auth)=>{
+            //create user and logged in
+            history.push("/")
+        })
+        .catch((e)=> alert(e.message))
         
     }
     return (
