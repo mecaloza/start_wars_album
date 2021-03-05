@@ -7,6 +7,10 @@ import {useStateValue} from './StateProvider';
 import { auth } from './firebase';
 import Login from "./Login.js"
 import {BrowserRouter as Router, Switch,Route } from "react-router-dom"
+import Checkout from "./Checkout";
+
+global.url_back =
+  " https://swapi.dev/api/";
 
 
 function App() {
@@ -47,10 +51,10 @@ function App() {
     <Router>
     <div className="app">
       <Switch>
-        {/* <Route path="/checkout">
+        <Route path="/checkout">
           <Header/>
           <Checkout></Checkout>
-        </Route> */}
+        </Route>
         <Route path="/login">
           <Login/>
         </Route>

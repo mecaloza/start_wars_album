@@ -4,16 +4,74 @@ import { bounceInLeft } from 'react-animations';
 // import Product from "./Product.js"
 import Radium, {StyleRoot} from 'radium';
 import { useState, useEffect } from "react";
+import MovieIcon from '@material-ui/icons/Movie';
+import Movie from "./Movie.js"
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 
 
 function Home() {
     const [shake, setShake] = useState(false);
     const [sheet_visible, setsheet_visible] = useState(false);
+    const [sheet_selection, setsheet_selection] = useState(false);
+
+    const [json_response, setJson_response] = useState();
+    const [sheet_type, setsheet_type] = useState("movie");
     const [second, setSecond] = useState("00");
-  const [minute, setMinute] = useState("00");
-  const [isActive, setIsActive] = useState(false);
-  const [counter, setCounter] = useState(0);
+    const [minute, setMinute] = useState("00");
+    const [isActive, setIsActive] = useState(false);
+    const [counter, setCounter] = useState(0);
+    const [isLoadingGlobal, setIsLoadingGlobal] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [fetchSuccess, setFetchSuccess] = useState(false);
+    const [openDialog, setOpenDialog] = useState(false);
+    const [txtmodal, setTxtmodal] = useState("");
+  const selec_folder = () =>{
+    setIsActive(!isActive)
+    setsheet_selection(true)
+    setsheet_visible(false)
+    get_sheets();
+
+  };
+
+  const get_sheets = () => {
+    const min = 1;
+    const max = 6;
+    const rand = min + Math.random() * (max - min)
+    console.log(rand)
+ 
+
+    fetch(`${global.url_back}films/${parseInt(rand)}/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        
+      },
+    })
+      .then((response) => {
+        setIsLoadingGlobal(false);
+        setIsSubmitting(false);
+        if (response.status === 200) {
+          return response.json().then((json_response) => {
+           console.log(json_response)
+           setJson_response(json_response)
+            setFetchSuccess(true);
+          });
+        } else {
+          setFetchSuccess(false);
+          setTxtmodal("Algo salió mal, intenta nuevamente.");
+          setOpenDialog(true);
+          return false;
+        }
+      })
+      .catch((error) => {
+        setIsLoadingGlobal(false);
+        setFetchSuccess(false);
+        setTxtmodal("Algo salió mal, intenta nuevamente.");
+        setOpenDialog(true);
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     let intervalId;
@@ -76,10 +134,30 @@ function Home() {
         <div className="sheets_colum"> 
         {sheet_visible ? (
         <div className="sheets_block">
-        <button  className = {shake ? `shake` : "test"}>Sobre 1</button>
-        <button  className = {shake ? `shake` : "test"}>Sobre 2</button>
+        <button  className = {shake ? `shake` : "test"} onClick={selec_folder}>Sobre 1</button>
+        <button  className = {shake ? `shake` : "test"} onClick={selec_folder}>Sobre 2</button>
        </div>
       ) : null}
+       
+    
+        {sheet_selection ? (
+          <>
+          <Movie
+          id="123456789"
+          type_sheet="movie"
+          title={json_response?.title}
+          episode={json_response?.episode_id}
+          director={json_response?.director}
+          producer={json_response?.producer}
+          created={json_response?.created}
+  
+          />
+          <button  className = "btn_next" onClick={get_sheets}><ArrowForwardIcon/></button>
+          </>
+      ) : null}
+        
+
+      
         
 
         
@@ -89,8 +167,8 @@ function Home() {
         ></img>
       {sheet_visible ? (
         <div className="sheets_block">
-        <button  className = {shake ? `shake` : "test"}>Sobre 3</button>
-        <button  className = {shake ? `shake` : "test"}>Sobre 4</button>
+        <button  className = {shake ? `shake` : "test"} onClick={selec_folder}>Sobre 3</button>
+        <button  className = {shake ? `shake` : "test"} onClick={selec_folder}>Sobre 4</button>
        </div>
       ) : null}
         

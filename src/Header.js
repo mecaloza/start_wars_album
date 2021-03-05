@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Header.css";
 import {Link} from "react-router-dom";
-// import SearchIcon from '@material-ui/icons/Search';
-// import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+
+import CollectionsIcon from '@material-ui/icons/Collections';
 import {useStateValue} from './StateProvider';
 import { auth } from './firebase';
 import { useState, useEffect } from "react";
@@ -34,10 +34,11 @@ function Header() {
             <img className="header__searchInput" src=" https://cdn.pixabay.com/photo/2017/06/03/18/21/star-wars-2369317_960_720.png"
              alt=""
             />
-            {/* <SearchIcon className="header__searchIcon"/> */}
+            
             </div>
             {/*3 links*/}
             <div className="header__nav">
+
                 <Link on to={!user && "/login"} className="header__link">
                 <div onClick={login}className="header__option">
                     <span className="header__optionLineOne">Hola {user?.email} </span>
@@ -46,9 +47,8 @@ function Header() {
                 
                 </Link>
 
-       
 
-                <Link to="/login" className="header__link">
+                <Link to="/checkout" className="header__link">
                 <div className="header__option">
                     <span className="header__optionLineOne">Mi</span>
                     <span className="header__optionLineTwo">Álbum</span>
@@ -63,7 +63,7 @@ function Header() {
             <Link to="/checkout" className="header__link">
                 <div className="header__optionBasket">
                    {/* shopping basker icon */}
-                {/* <ShoppingBasketIcon/> */}
+                <CollectionsIcon/>
                    {/* Number of items */}
                 <span className="header__optionLineTwo header_baketCount">{basket?.length}</span> 
 

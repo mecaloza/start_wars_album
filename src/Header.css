@@ -16,12 +16,14 @@ margin-left:20px;
 margin-right:20px;
 margin:0px 20px;
 margin-top:18px;
+background-color: "pink";
 
 
 }
 
 .header__search{
     display:flex;
+    flex-direction: column;
     flex:1;
 }
 .header__searchInput{
@@ -35,20 +37,17 @@ margin-top:18px;
     margin-top:18px; */
 }
 
-.header__searchIcon{
-    padding: 5px;
-    height: 22px !important ;
-    background-color: #cd9040;
 
-}
 .header__nav{
     display:flex;
     justify-content: space-evenly;
+    /* background-color: blanchedalmond; */
 }
 
 .header__link{
     color:white;
     text-decoration:none;
+    /* background-color: red; */
 }
 .header__option{
     display: flex;
@@ -58,12 +57,15 @@ margin-top:18px;
 }
 
 .header__optionLineOne{
-font-size:10px
+font-size:10px;
+/* font-family: Starjedi, serif; */
 }
 
 .header__optionLineTwo{
 font-size: 13px;
 font-weight: 800;
+font-family: Starjedi, serif;
+
 }
 
 .header__optionBasket{
