@@ -4,17 +4,17 @@ import {Link} from "react-router-dom";
 // import SearchIcon from '@material-ui/icons/Search';
 // import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import {useStateValue} from './StateProvider';
-// import { auth } from './firebase';
+import { auth } from './firebase';
 import { useState, useEffect } from "react";
 
 function Header() {
-    const [basket, setbasket] = useState("");
-    const [user, setuser] = useState("");
+    const [{basket ,user}]=useStateValue();
 
     console.log(basket);
     const login=()=>{
+        
         if(user){
-            // auth.signOut();
+            auth.signOut();
         }
     }
     return (
@@ -50,8 +50,8 @@ function Header() {
 
                 <Link to="/login" className="header__link">
                 <div className="header__option">
-                    <span className="header__optionLineOne">Tus</span>
-                    <span className="header__optionLineTwo">Laminas</span>
+                    <span className="header__optionLineOne">Mi</span>
+                    <span className="header__optionLineTwo">Álbum</span>
                 </div>
                 
                 </Link>
